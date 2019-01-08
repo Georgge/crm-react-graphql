@@ -15,7 +15,10 @@ const root = {
       name: "Georgge",
       lastName: "Garcia",
       company: "CosmoCode",
-      email: "georgge.dev@gmail.com"
+      emails: [
+        {email: "test1@mail.com"},
+        {email: "test2@mail.com"}
+      ]
     }
   }
 };
