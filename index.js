@@ -8,6 +8,18 @@ app.get('/', (request, response) => {
   response.send('It is ok');
 })
 
+class Client {
+  constructor(id, {name, lastName, company, email}) {
+    this.id = id;
+    this.name = name;
+    this.lastName = lastName;
+    this.company = company;
+    this.email = email;
+  }
+}
+
+const clientDB = {};
+
 const root = {
   client: () => {
     return {
@@ -15,11 +27,15 @@ const root = {
       name: "Georgge",
       lastName: "Garcia",
       company: "CosmoCode",
-      emails: [
-        {email: "test1@mail.com"},
-        {email: "test2@mail.com"}
-      ]
+      email: "georgge.dev@gmail.com"
     }
+  },
+  createClient: ({input}) => {
+    const id = require('crypto').randomBytes(10)
+      .toString('hex');
+
+    clientDB[id] = input;
+    return new Client(id, input);
   }
 };
 
