@@ -9,7 +9,15 @@ app.get('/', (request, response) => {
 })
 
 const root = {
-  hi: () => 'Hello world from GraphQl'
+  client: () => {
+    return {
+      id: 15637,
+      name: "Georgge",
+      lastName: "Garcia",
+      company: "CosmoCode",
+      email: "georgge.dev@gmail.com"
+    }
+  }
 };
 
 app.use('/graphql', graphqlHTTP({
