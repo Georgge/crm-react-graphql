@@ -38,6 +38,7 @@ const schema = buildSchema(`
     email: String
   }
 
+  """ Data to client """
   input ClientInput {
     id: ID
     name: String!
@@ -48,7 +49,10 @@ const schema = buildSchema(`
     orders: [OrderInput]
   }
 
+  """ Mutation for create users """
   type Mutation {
+    # Resolover name, input with data and value return
+    """ For new client """
     createClient(input: ClientInput) : Client
   }
 `);
