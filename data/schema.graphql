@@ -51,4 +51,5 @@ type Client {
     # Resolover name, input with data and value return
     """ For new client """
     createClient(input: ClientInput) : Client
+    updateClient(input: ClientInput) : Client
   }

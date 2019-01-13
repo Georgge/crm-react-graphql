@@ -26,6 +26,15 @@ export const resolvers = {
           else resolve(newClient)
         });
       });
+    },
+
+    updateClient: (root, {input}) => {
+      return new Promise((resolve, object) => {
+        Clients.findOneAndUpdate({ _id: input.id }, input, {new: true}, (error, client) => {
+          if (error) rejects(error)
+          else resolve(client);
+        });
+      });
     }
   }
 }
