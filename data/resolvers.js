@@ -35,6 +35,15 @@ export const resolvers = {
           else resolve(client);
         });
       });
+    },
+
+    deleteClient: (root, {id}) => {
+      return new Promise((resolve, object) => {
+        Clients.findOneAndRemove({ _id: id }, (error) => {
+          if (error) rejects(error)
+          else resolve(`${id} was removed`)
+        });
+      });
     }
   }
 }

@@ -52,4 +52,5 @@ type Client {
     """ For new client """
     createClient(input: ClientInput) : Client
     updateClient(input: ClientInput) : Client
+    deleteClient(id: ID!) : String
   }
