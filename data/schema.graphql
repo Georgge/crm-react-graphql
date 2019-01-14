@@ -23,6 +23,7 @@ type Client {
   }
 
   type Query {
+    getClients: Client
     getClient(id: ID): Client
   }
 
