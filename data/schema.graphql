@@ -23,8 +23,8 @@ type Client {
   }
 
   type Query {
-    getClients: Client
-    getClient(id: ID): Client
+    getClients(limit: Int) : [Client]
+    getClient(id: ID) : Client
   }
 
   input OrderInput {

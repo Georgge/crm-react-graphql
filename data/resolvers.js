@@ -4,8 +4,8 @@ import { rejects } from 'assert';
 
 export const resolvers = {
   Query: {
-    getClients: () => {
-      return Clients.find({});
+    getClients: (root, {limit}) => {
+      return Clients.find({}).limit(limit);
     },
 
     getClient: ({id}) => {
