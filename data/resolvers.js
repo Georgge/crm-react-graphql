@@ -8,8 +8,13 @@ export const resolvers = {
       return Clients.find({}).limit(limit);
     },
 
-    getClient: ({id}) => {
-      return new Client(id, clientDB[id]);
+    getClient: (root, {id}) => {
+      return new Promise((resolve, object) => {
+        Clients.findById(id, (error, client) => {
+          if (error) rejects(error)
+          else resolve(client)
+        });
+      });
     },
   },
   Mutation: {
