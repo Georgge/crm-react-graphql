@@ -17,6 +17,7 @@ export const resolvers = {
       });
     },
   },
+
   Mutation: {
     createClient: (root, {input}) => {
       const newClient = new Clients({
