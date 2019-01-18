@@ -12,6 +12,13 @@ class NewClient extends Component {
       type: '',
     },
     error: false,
+    emails: [],
+  }
+
+  newField = () => {
+    this.setState({
+      emails: this.state.emails.concat([{email: ''}]),
+    });
   }
 
   render() {
@@ -113,6 +120,27 @@ class NewClient extends Component {
                         });
                       }}
                     />
+                  </div>
+                  {
+                    this.state.emails.map((input, index) => (
+                      <div key={index} className="form-group  col-md-12">
+                        <label>Email {index + 1}:</label>
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          className="form-control"
+                        />
+                      </div>
+                    ))
+                  }
+                  <div className="form-group  d-flex  justify-content-center  col-md-12">
+                    <button
+                      type="button"
+                      className="btn  btn-warning"
+                      onClick={this.newField}
+                    >
+                      Add Email
+                    </button>
                   </div>
                   <div className="form-group col-md-6">
                     <label>Email</label>
