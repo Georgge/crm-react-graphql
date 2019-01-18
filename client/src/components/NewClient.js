@@ -24,7 +24,12 @@ class NewClient extends Component {
         <h2 className="text-center"> New Client</h2>
         { response }
         <div className="row  justify-content-center">
-          <Mutation mutation={NEW_CLIENT}>
+          <Mutation
+            mutation={NEW_CLIENT}
+            onCompleted={() => {
+              this.props.history.push('/');
+            }}
+          >
             {createClient => (
               <form
                 className="col-md-8 m-3"
