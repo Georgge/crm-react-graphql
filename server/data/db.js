@@ -10,7 +10,7 @@ const clientSchema = new mongoose.Schema({
   name: String,
   lastName: String,
   company: String,
-  emails: Array,
+  email: String,
   type: String,
   orders: Array,
 });
