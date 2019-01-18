@@ -11,12 +11,18 @@ class NewClient extends Component {
       email: '',
       type: '',
     },
+    error: false,
   }
 
   render() {
+    const { error } = this.state;
+    const response = (error)
+      ? <p className="alert alert-danger p-3 text-center">Required fields</p>
+      : '';
     return (
       <Fragment>
         <h2 className="text-center"> New Client</h2>
+        { response }
         <div className="row  justify-content-center">
           <Mutation mutation={NEW_CLIENT}>
             {createClient => (
@@ -27,6 +33,17 @@ class NewClient extends Component {
                   const {
                     name, lastName, company, email, type,
                   } = this.state.client;
+
+                  if (name === '' || email === '' || type === '') {
+                    this.setState({
+                      error: true,
+                    });
+                    return;
+                  }
+
+                  this.setState({
+                    error: false,
+                  });
 
                   const input = {
                     name,
