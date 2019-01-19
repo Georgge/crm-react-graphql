@@ -21,6 +21,12 @@ class NewClient extends Component {
     });
   }
 
+  removeField = (i) => {
+    this.setState({
+      emails: this.state.emails.filter((email, index) => i !== index),
+    });
+  }
+
   render() {
     const { error } = this.state;
     const response = (error)
@@ -125,11 +131,22 @@ class NewClient extends Component {
                     this.state.emails.map((input, index) => (
                       <div key={index} className="form-group  col-md-12">
                         <label>Email {index + 1}:</label>
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          className="form-control"
-                        />
+                        <div className="input-group">
+                          <input
+                            type="email"
+                            placeholder="Email"
+                            className="form-control"
+                          />
+                          <div className="input-group-append">
+                            <button
+                              type="button"
+                              className="btn btn-danger"
+                              onClick={() => { this.removeField(index); }}
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     ))
                   }
