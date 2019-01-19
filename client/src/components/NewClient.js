@@ -27,6 +27,20 @@ class NewClient extends Component {
     });
   }
 
+  readField = (i, e) => {
+    const newEmail = this.state.emails.map((email, index) => {
+      if (i !== index) return email;
+      return {
+        ...email,
+        email: e.target.value,
+      };
+    });
+
+    this.setState({
+      emails: newEmail,
+    });
+  }
+
   render() {
     const { error } = this.state;
     const response = (error)
@@ -136,12 +150,13 @@ class NewClient extends Component {
                             type="email"
                             placeholder="Email"
                             className="form-control"
+                            onChange={(e) => { this.readField(index, e); }}
                           />
                           <div className="input-group-append">
                             <button
                               type="button"
                               className="btn btn-danger"
-                              onClick={() => { this.removeField(index); }}
+                              onClick={() => { this.removeField(index) }}
                             >
                               Remove
                             </button>
