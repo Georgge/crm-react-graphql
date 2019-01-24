@@ -17,7 +17,7 @@ class NewClient extends Component {
 
   newField = () => {
     this.setState({
-      emails: this.state.emails.concat([{email: ''}]),
+      emails: this.state.emails.concat([{ email: '' }]),
     });
   }
 
@@ -63,10 +63,12 @@ class NewClient extends Component {
                 onSubmit={(e) => {
                   e.preventDefault();
                   const {
-                    name, lastName, company, email, type,
+                    name, lastName, company, type,
                   } = this.state.client;
 
-                  if (name === '' || email === '' || type === '') {
+                  const { emails } = this.state;
+
+                  if (name === '' || emails === '' || type === '') {
                     this.setState({
                       error: true,
                     });
@@ -81,7 +83,7 @@ class NewClient extends Component {
                     name,
                     lastName,
                     company,
-                    email,
+                    emails,
                     type,
                   };
 
@@ -173,22 +175,6 @@ class NewClient extends Component {
                     >
                       Add Email
                     </button>
-                  </div>
-                  <div className="form-group col-md-6">
-                    <label>Email</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Email"
-                      onChange={(e) => {
-                        this.setState({
-                          client: {
-                            ...this.state.client,
-                            email: e.target.value,
-                          },
-                        });
-                      }}
-                    />
                   </div>
                 </div>
                 <div className="form-row">

@@ -3,7 +3,7 @@ type Client {
     name: String
     lastName: String
     company: String
-    email: String
+    emails: [Email]
     type: ClientType
     orders: [Order]
   }
@@ -42,7 +42,7 @@ type Client {
     name: String!
     lastName: String
     company: String
-    email: String!
+    emails: [EmailInput]!
     type: ClientType!
     orders: [OrderInput]
   }

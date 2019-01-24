@@ -24,7 +24,7 @@ export const resolvers = {
         name: input.name,
         lastName: input.lastName,
         company: input.company,
-        email: input.email,
+        emails: input.emails,
         type: input.type,
         orders: input.orders,
       });
