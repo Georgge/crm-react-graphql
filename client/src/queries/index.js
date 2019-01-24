@@ -7,3 +7,14 @@ export const CLIENTS_QUERY = gql`{
     company
   }
 }`;
+
+export const CLIENT_QUERY = gql`
+  query  ConsultClient($id: ID){
+  getClient(id: $id) {
+    name
+    id
+    lastName
+    company
+  }
+}
+`;
