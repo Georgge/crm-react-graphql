@@ -16,7 +16,7 @@ class EditClient extends Component {
               if (loading) return 'Loading...';
               if (error) return `Error! ${error.message}`;
               return (
-                <EditClientForm />
+                <EditClientForm client={data.getClient} />
               );
             }}
           </Query>

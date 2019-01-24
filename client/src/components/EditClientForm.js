@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class EditClientForm extends Component {
   state = {
-    emails: [],
+    client: this.props.client,
+    emails: this.props.client.emails,
   }
 
   newField = () => {
@@ -27,33 +28,63 @@ class EditClientForm extends Component {
 
 
   render() {
+    const {
+      name, lastName, company, type
+    } = this.state.client;
     const { emails } = this.state;
 
     return (
       <form className="col-md-8 m-3">
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label>Nombre</label>
+            <label>Name</label>
             <input
               type="text"
               className="form-control"
+              defaultValue={name}
+              onChange={(e) => {
+                this.setState({
+                  client: {
+                    ...this.state.client,
+                    name: e.target.value,
+                  },
+                });
+              }}
             />
           </div>
           <div className="form-group col-md-6">
-            <label>Apellido</label>
+            <label>Last Name</label>
             <input
               type="text"
               className="form-control"
+              defaultValue={lastName}
+              onChange={(e) => {
+                this.setState({
+                  client: {
+                    ...this.state.client,
+                    lastName: e.target.value,
+                  },
+                });
+              }}
             />
           </div>
         </div>
 
         <div className="form-row">
           <div className="form-group col-md-12">
-            <label>Empresa</label>
+            <label>Company</label>
             <input
               type="text"
               className="form-control"
+              defaultValue={company}
+              onChange={(e) => {
+                this.setState({
+                  client: {
+                    ...this.state.client,
+                    company: e.target.value,
+                  },
+                });
+              }}
             />
           </div>
 
@@ -94,15 +125,26 @@ class EditClientForm extends Component {
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label>Tipo Cliente</label>
-            <select className="form-control">
+            <label>Membership</label>
+            <select
+              className="form-control"
+              value={type}
+              onChange={(e) => {
+                this.setState({
+                  client: {
+                    ...this.state.client,
+                    type: e.target.value,
+                  },
+                });
+              }}
+            >
               <option value="">Select</option>
               <option value="PREMIUM">PREMIUM</option>
               <option value="BASIC">BASIC</option>
             </select>
           </div>
         </div>
-        <button type="submit" className="btn btn-success float-right">Guardar Cambios</button>
+        <button type="submit" className="btn btn-success float-right">Save Changes</button>
       </form>
     );
   }

@@ -15,6 +15,10 @@ export const CLIENT_QUERY = gql`
     id
     lastName
     company
+    emails {
+      email
+    }
+    type
   }
 }
 `;
