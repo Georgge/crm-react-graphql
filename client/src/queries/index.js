@@ -5,6 +5,7 @@ export const CLIENTS_QUERY = gql`{
     name
     id
     company
+    lastName
   }
 }`;
 
