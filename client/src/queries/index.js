@@ -7,6 +7,7 @@ export const CLIENTS_QUERY = gql`{
     company
     lastName
   }
+  totalClients
 }`;
 
 export const CLIENT_QUERY = gql`

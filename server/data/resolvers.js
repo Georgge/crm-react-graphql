@@ -16,6 +16,15 @@ export const resolvers = {
         });
       });
     },
+
+    totalClients: (root) => {
+      return new Promise((resolve, object) => {
+        Clients.countDocuments({}, (error, count) => {
+          if (error) rejects(error);
+          else resolve(count);
+        });
+      });
+    },
   },
 
   Mutation: {

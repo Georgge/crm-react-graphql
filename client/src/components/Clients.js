@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { CLIENTS_QUERY } from '../queries';
 import { DELETE_CLIENT } from '../mutations';
 
+import Pager from './Pager';
+
 class Clients extends Component {
   state = {
     pager: {
@@ -21,6 +23,7 @@ class Clients extends Component {
         }) => {
           if (loading) return 'Loading...';
           if (error) return `Error: ${error.message}`;
+          console.log(data);
 
           return (
             <Fragment>
@@ -67,6 +70,10 @@ class Clients extends Component {
                   </li>
                 ))}
               </ul>
+              <Pager
+                current={this.state.pager.current}
+                totalClients={data.totalClients}
+              />
             </Fragment>
           );
         }}
