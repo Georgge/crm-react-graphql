@@ -8,6 +8,8 @@ import { DELETE_CLIENT } from '../mutations';
 import Pager from './Pager';
 
 class Clients extends Component {
+  limit = 10;
+
   state = {
     pager: {
       offset: 0,
@@ -73,6 +75,7 @@ class Clients extends Component {
               <Pager
                 current={this.state.pager.current}
                 totalClients={data.totalClients}
+                limit={this.limit}
               />
             </Fragment>
           );
